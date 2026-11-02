@@ -1,0 +1,37 @@
+{
+  "name": "abortable-retry",
+  "version": "1.0.0",
+  "description": "Retry async functions with exponential backoff, jitter, per-attempt timeouts, and AbortSignal support. Zero dependencies, fully typed.",
+  "keywords": ["retry", "backoff", "exponential", "jitter", "abort", "abortsignal", "abortcontroller", "timeout", "promise", "async"],
+  "license": "MIT",
+  "author": "Amir Shahzad Hashmi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirshahzadhashmi7145/abortable-retry.git"
+  },
+  "bugs": { "url": "https://github.com/amirshahzadhashmi7145/abortable-retry/issues" },
+  "homepage": "https://github.com/amirshahzadhashmi7145/abortable-retry#readme",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "tsc --noEmit && node --test test/*.test.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0"
+  }
+}
